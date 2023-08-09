@@ -1,0 +1,30 @@
+import { auth } from './firebaseInit'; // Assuming firebaseInit.js exports auth
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+
+function signUpUser(email, password) {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed up successfully
+      const user = userCredential.user;
+      // You can add additional logic here, e.g., redirecting the user or showing a success message
+    })
+    .catch((error) => {
+      console.error("Error signing up:", error);
+      // You might want to show an error message to the user here
+    });
+}
+
+function signInUser(email, password) {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in successfully
+      const user = userCredential.user;
+      // You can add additional logic here, e.g., redirecting the user or showing a success message
+    })
+    .catch((error) => {
+      console.error("Error signing in:", error);
+      // You might want to show an error message to the user here
+    });
+}
+
+// You can then call these functions when needed, e.g., when a user submits a sign-up or sign-in form
