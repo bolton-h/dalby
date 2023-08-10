@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Option 1: CoreUI for Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-UkVD+zxJKGsZP3s/JuRzapi4dQrDDuEf/kHphzg8P3v8wuQ6m9RLjTkPGeFcglQU" crossorigin="anonymous">
+    <!--Coreui JS-->
+    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@3.5.0/dist/js/coreui.bundle.min.js"></script>
+
+    <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+
+<!-- Handsontable -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@10.0.0/dist/handsontable.full.min.css">
+<script src="https://cdn.jsdelivr.net/npm/handsontable@10.0.0/dist/handsontable.full.min.js"></script>
+
+
+    <title>Dalby Admin Panel</title>
+  </head>
+
+
+
+  <style>
+
+    td {
+white-space: nowrap;
+width: auto;
+border-color: black;
+}
+
+th {
+  white-space: nowrap;
+  text-align: center;
+  border-color: black;
+}
+
+tr  {
+  white-space: nowrap;
+  text-align: center;
+  border-color: black;
+
+}
+
+textarea {
+
+  min-width: 500px;
+  height: fit-content;
+
+}
+
+.collapsible .content {
+    max-height: 1000px !important; /* or any large value */
+}
+
+  </style>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-coreui-toggle="collapse" data-coreui-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="dashboard.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="privatecars.html">Private Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="underwriting.html">Underwriting</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="users.html">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="movement.html">Movement</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <body>
+
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#enquiriesTable" aria-expanded="false" aria-controls="enquiriesTable" style="width: 100%">
+        Enquiries
+      </button>
+      <div class="col-md-12 table-responsive" style="align-self: center" id="enquiriesTable">
+        <table class="table table-hover caption-top">
+      
+          <thead class="table table-primary">
+            <tr style="width: fit-content; height: 10px">
+              <th scope="col">ID</th>
+              <th scope="col">Registration</th>
+              <th scope="col">Mileage</th>
+              <th scope="col">Address</th>
+              <th scope="col">VIN</th>
+              <th scope="col">Make</th>
+              <th scope="col">Model</th>
+              <th scope="col">Derivative</th>
+              <th scope="col">Bodytype</th>
+              <th scope="col">Seats</th>
+              <th scope="col">Doors</th>
+              <th scope="col">CO2</th>
+              <th scope="col">Colour</th>
+              <th scope="col">OEM Colour</th>
+              <th scope="col">Emissions Standard</th>
+              <th scope="col">Transmission</th>
+              <th scope="col">Fuel</th>
+              <th scope="col">Year</th>
+              <th scope="col">Plate</th>
+              <th scope="col">Service History</th>
+              <th scope="col">Condition</th>
+              <th scope="col">Keys</th>
+              <th scope="col">Owners</th>
+              <th scope="col">MOT Expiry</th>
+              <th scope="col">MOT Advisories</th>
+              <th scope="col">HPI Report</th>
+              <th scope="col">Registration Date</th>
+              <th scope="col">CAP Below</th>
+              <th scope="col">CAP Average</th>
+              <th scope="col">CAP Clean</th>
+              <th scope="col">CAP Retail</th>
+              <th scope="col">AT Trade</th>
+              <th scope="col">AT Part Exchange</th>
+              <th scope="col">AT Private</th>
+              <th scope="col">AT Retail</th>
+              <th scope="col">Price</th>
+              <th scope="col">Fee + VAT (£)</th>
+              <th scope="col">Source</th>
+              <th scope="col">Images</th>
+              <th scope="col">Files</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+            <tr>
+              <th scope="row">CAR ID</th>
+              <td>AB12CDE</td>
+              <td>50000</td>
+              <td>55 Greenwood Drive, Littlehampton, West Sussex, BN164JW</td>
+              <td>BIGOLDVINGOESINHERETOIDTHECARINQUESTION</td>
+              <td>Audi</td>
+              <td>A3 30 TFSI S Line</td>
+              <td>anotheridgoesheretosetapartderivative</td>
+              <td>Hatchback</td>
+              <td>5</td>
+              <td>5</td>
+              <td>110</td>
+              <td>White</td>
+              <td>Ibis White</td>
+              <td>EU6</td>
+              <td>Automatic</td>
+              <td>Petrol</td>
+              <td>2017</td>
+              <td>17</td>
+              <td>Full Main Dealer</td>
+              <td>Excellent</td>
+              <td>2</td>
+              <td>1</td>
+              <td>01/09/23</td>
+              <td>A list of nested MOT expiries will need to go in here, either that or they are separated by breaks, i don't know</td>
+              <td>The same thing happens here with the HPI report as that needs to be nested to contain all the right information</td>
+              <td>01/03/2017</td>
+              <td>15000</td>
+              <td>15500</td>
+              <td>16000</td>
+              <td>18000</td>
+              <td>15000</td>
+              <td>15250</td>
+              <td>16500</td>
+              <td>18995</td>
+              <td>15250</td>
+              <td>309</td>
+              <td>Facebook</td>
+              <td>Image goes here</td>
+              <td>Enquiry</td>
+      
+      
+      
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<button class="btn btn-info" type="button" data-coreui-toggle="collapse" data-coreui-target="#pendingTable" aria-expanded="false" aria-controls="pendingTable" style="width: 100%;">Pending</button>
+<div class="col-md-12 table-responsive" style="align-self: center" id="pendingTable">
+  <table class="table table-hover caption-top">
+    <thead class="table table-info">
+      <tr style="width: fit-content; height: 10px">
+        <th scope="col">ID</th>
+        <th scope="col">Registration</th>
+        <th scope="col">Mileage</th>
+        <th scope="col">Address</th>
+        <th scope="col">VIN</th>
+        <th scope="col">Make</th>
+        <th scope="col">Model</th>
+        <th scope="col">Derivative</th>
+        <th scope="col">Bodytype</th>
+        <th scope="col">Seats</th>
+        <th scope="col">Doors</th>
+        <th scope="col">CO2</th>
+        <th scope="col">Colour</th>
+        <th scope="col">OEM Colour</th>
+        <th scope="col">Emissions Standard</th>
+        <th scope="col">Transmission</th>
+        <th scope="col">Fuel</th>
+        <th scope="col">Year</th>
+        <th scope="col">Plate</th>
+        <th scope="col">Service History</th>
+        <th scope="col">Condition</th>
+        <th scope="col">Keys</th>
+        <th scope="col">Owners</th>
+        <th scope="col">MOT Expiry</th>
+        <th scope="col">MOT Advisories</th>
+        <th scope="col">HPI Report</th>
+        <th scope="col">Registration Date</th>
+        <th scope="col">CAP Below</th>
+        <th scope="col">CAP Average</th>
+        <th scope="col">CAP Clean</th>
+        <th scope="col">CAP Retail</th>
+        <th scope="col">AT Trade</th>
+        <th scope="col">AT Part Exchange</th>
+        <th scope="col">AT Private</th>
+        <th scope="col">AT Retail</th>
+        <th scope="col">Price</th>
+        <th scope="col">Fee + VAT (£)</th>
+        <th scope="col">Source</th>
+        <th scope="col">Images</th>
+        <th scope="col">Files</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+      <tr>
+        <th scope="row">CAR ID</th>
+        <td>AB12CDE</td>
+        <td>50000</td>
+        <td>55 Greenwood Drive, Littlehampton, West Sussex, BN164JW</td>
+        <td>BIGOLDVINGOESINHERETOIDTHECARINQUESTION</td>
+        <td>Audi</td>
+        <td>A3 30 TFSI S Line</td>
+        <td>anotheridgoesheretosetapartderivative</td>
+        <td>Hatchback</td>
+        <td>5</td>
+        <td>5</td>
+        <td>110</td>
+        <td>White</td>
+        <td>Ibis White</td>
+        <td>EU6</td>
+        <td>Automatic</td>
+        <td>Petrol</td>
+        <td>2017</td>
+        <td>17</td>
+        <td>Full Main Dealer</td>
+        <td>Excellent</td>
+        <td>2</td>
+        <td>1</td>
+        <td>01/09/23</td>
+        <td>A list of nested MOT expiries will need to go in here, either that or they are separated by breaks, i don't know</td>
+        <td>The same thing happens here with the HPI report as that needs to be nested to contain all the right information</td>
+        <td>01/03/2017</td>
+        <td>15000</td>
+        <td>15500</td>
+        <td>16000</td>
+        <td>18000</td>
+        <td>15000</td>
+        <td>15250</td>
+        <td>16500</td>
+        <td>18995</td>
+        <td>15250</td>
+        <td>309</td>
+        <td>Facebook</td>
+        <td>Image goes here</td>
+        <td>Enquiry</td>
+
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button class="btn btn-dark" type="button" data-coreui-toggle="collapse" data-coreui-target="#liveTable" aria-expanded="false" aria-controls="liveTable" style="width: 100%;">Live</button>
+<div class="col-md-12 table-responsive" style="align-self: center" id="liveTable">
+  <table class="table table-hover caption-top">
+
+    <thead class="table table-dark">
+      <tr style="width: fit-content; height: 10px">
+        <th scope="col">ID</th>
+        <th scope="col">Registration</th>
+        <th scope="col">Mileage</th>
+        <th scope="col">Address</th>
+        <th scope="col">VIN</th>
+        <th scope="col">Make</th>
+        <th scope="col">Model</th>
+        <th scope="col">Derivative</th>
+        <th scope="col">Bodytype</th>
+        <th scope="col">Seats</th>
+        <th scope="col">Doors</th>
+        <th scope="col">CO2</th>
+        <th scope="col">Colour</th>
+        <th scope="col">OEM Colour</th>
+        <th scope="col">Emissions Standard</th>
+        <th scope="col">Transmission</th>
+        <th scope="col">Fuel</th>
+        <th scope="col">Year</th>
+        <th scope="col">Plate</th>
+        <th scope="col">Service History</th>
+        <th scope="col">Condition</th>
+        <th scope="col">Keys</th>
+        <th scope="col">Owners</th>
+        <th scope="col">MOT Expiry</th>
+        <th scope="col">MOT Advisories</th>
+        <th scope="col">HPI Report</th>
+        <th scope="col">Registration Date</th>
+        <th scope="col">CAP Below</th>
+        <th scope="col">CAP Average</th>
+        <th scope="col">CAP Clean</th>
+        <th scope="col">CAP Retail</th>
+        <th scope="col">AT Trade</th>
+        <th scope="col">AT Part Exchange</th>
+        <th scope="col">AT Private</th>
+        <th scope="col">AT Retail</th>
+        <th scope="col">Price</th>
+        <th scope="col">Fee + VAT (£)</th>
+        <th scope="col">Source</th>
+        <th scope="col">Images</th>
+        <th scope="col">Files</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+      <tr>
+        <th scope="row">CAR ID</th>
+        <td>AB12CDE</td>
+        <td>50000</td>
+        <td>55 Greenwood Drive, Littlehampton, West Sussex, BN164JW</td>
+        <td>BIGOLDVINGOESINHERETOIDTHECARINQUESTION</td>
+        <td>Audi</td>
+        <td>A3 30 TFSI S Line</td>
+        <td>anotheridgoesheretosetapartderivative</td>
+        <td>Hatchback</td>
+        <td>5</td>
+        <td>5</td>
+        <td>110</td>
+        <td>White</td>
+        <td>Ibis White</td>
+        <td>EU6</td>
+        <td>Automatic</td>
+        <td>Petrol</td>
+        <td>2017</td>
+        <td>17</td>
+        <td>Full Main Dealer</td>
+        <td>Excellent</td>
+        <td>2</td>
+        <td>1</td>
+        <td>01/09/23</td>
+        <td>A list of nested MOT expiries will need to go in here, either that or they are separated by breaks, i don't know</td>
+        <td>The same thing happens here with the HPI report as that needs to be nested to contain all the right information</td>
+        <td>01/03/2017</td>
+        <td>15000</td>
+        <td>15500</td>
+        <td>16000</td>
+        <td>18000</td>
+        <td>15000</td>
+        <td>15250</td>
+        <td>16500</td>
+        <td>18995</td>
+        <td>15250</td>
+        <td>309</td>
+        <td>Facebook</td>
+        <td>Image goes here</td>
+        <td>Enquiry</td>
+
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button class="btn btn-warning" type="button" data-coreui-toggle="collapse" data-coreui-target="#agreedTable" aria-expanded="false" aria-controls="agreedTable" style="width: 100%;">Agreed</button>
+<div class="col-md-12 table-responsive" style="align-self: center" id="agreedTable">
+  <table class="table table-hover caption-top">
+    <thead class="table table-warning">
+      <tr style="width: fit-content; height: 10px">
+        <th scope="col">ID</th>
+        <th scope="col">Registration</th>
+        <th scope="col">Mileage</th>
+        <th scope="col">Address</th>
+        <th scope="col">VIN</th>
+        <th scope="col">Make</th>
+        <th scope="col">Model</th>
+        <th scope="col">Derivative</th>
+        <th scope="col">Bodytype</th>
+        <th scope="col">Seats</th>
+        <th scope="col">Doors</th>
+        <th scope="col">CO2</th>
+        <th scope="col">Colour</th>
+        <th scope="col">OEM Colour</th>
+        <th scope="col">Emissions Standard</th>
+        <th scope="col">Transmission</th>
+        <th scope="col">Fuel</th>
+        <th scope="col">Year</th>
+        <th scope="col">Plate</th>
+        <th scope="col">Service History</th>
+        <th scope="col">Condition</th>
+        <th scope="col">Keys</th>
+        <th scope="col">Owners</th>
+        <th scope="col">MOT Expiry</th>
+        <th scope="col">MOT Advisories</th>
+        <th scope="col">HPI Report</th>
+        <th scope="col">Registration Date</th>
+        <th scope="col">CAP Below</th>
+        <th scope="col">CAP Average</th>
+        <th scope="col">CAP Clean</th>
+        <th scope="col">CAP Retail</th>
+        <th scope="col">AT Trade</th>
+        <th scope="col">AT Part Exchange</th>
+        <th scope="col">AT Private</th>
+        <th scope="col">AT Retail</th>
+        <th scope="col">Price</th>
+        <th scope="col">Fee + VAT (£)</th>
+        <th scope="col">Source</th>
+        <th scope="col">Images</th>
+        <th scope="col">Files</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+      <tr>
+        <th scope="row">CAR ID</th>
+        <td>AB12CDE</td>
+        <td>50000</td>
+        <td>55 Greenwood Drive, Littlehampton, West Sussex, BN164JW</td>
+        <td>BIGOLDVINGOESINHERETOIDTHECARINQUESTION</td>
+        <td>Audi</td>
+        <td>A3 30 TFSI S Line</td>
+        <td>anotheridgoesheretosetapartderivative</td>
+        <td>Hatchback</td>
+        <td>5</td>
+        <td>5</td>
+        <td>110</td>
+        <td>White</td>
+        <td>Ibis White</td>
+        <td>EU6</td>
+        <td>Automatic</td>
+        <td>Petrol</td>
+        <td>2017</td>
+        <td>17</td>
+        <td>Full Main Dealer</td>
+        <td>Excellent</td>
+        <td>2</td>
+        <td>1</td>
+        <td>01/09/23</td>
+        <td>A list of nested MOT expiries will need to go in here, either that or they are separated by breaks, i don't know</td>
+        <td>The same thing happens here with the HPI report as that needs to be nested to contain all the right information</td>
+        <td>01/03/2017</td>
+        <td>15000</td>
+        <td>15500</td>
+        <td>16000</td>
+        <td>18000</td>
+        <td>15000</td>
+        <td>15250</td>
+        <td>16500</td>
+        <td>18995</td>
+        <td>15250</td>
+        <td>309</td>
+        <td>Facebook</td>
+        <td>Image goes here</td>
+        <td>Enquiry</td>
+
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button class="btn btn-success" type="button" data-coreui-toggle="collapse" data-coreui-target="#completedTable" aria-expanded="false" aria-controls="completedTable" style="width: 100%;">Completed</button>
+<div class="col-md-12 table-responsive" style="align-self: center" id="completedTable">
+  <table class="table table-hover caption-top">
+
+    <thead class="table table-success">
+      <tr style="width: fit-content; height: 10px">
+        <th scope="col">ID</th>
+        <th scope="col">Registration</th>
+        <th scope="col">Mileage</th>
+        <th scope="col">Address</th>
+        <th scope="col">VIN</th>
+        <th scope="col">Make</th>
+        <th scope="col">Model</th>
+        <th scope="col">Derivative</th>
+        <th scope="col">Bodytype</th>
+        <th scope="col">Seats</th>
+        <th scope="col">Doors</th>
+        <th scope="col">CO2</th>
+        <th scope="col">Colour</th>
+        <th scope="col">OEM Colour</th>
+        <th scope="col">Emissions Standard</th>
+        <th scope="col">Transmission</th>
+        <th scope="col">Fuel</th>
+        <th scope="col">Year</th>
+        <th scope="col">Plate</th>
+        <th scope="col">Service History</th>
+        <th scope="col">Condition</th>
+        <th scope="col">Keys</th>
+        <th scope="col">Owners</th>
+        <th scope="col">MOT Expiry</th>
+        <th scope="col">MOT Advisories</th>
+        <th scope="col">HPI Report</th>
+        <th scope="col">Registration Date</th>
+        <th scope="col">CAP Below</th>
+        <th scope="col">CAP Average</th>
+        <th scope="col">CAP Clean</th>
+        <th scope="col">CAP Retail</th>
+        <th scope="col">AT Trade</th>
+        <th scope="col">AT Part Exchange</th>
+        <th scope="col">AT Private</th>
+        <th scope="col">AT Retail</th>
+        <th scope="col">Price</th>
+        <th scope="col">Fee + VAT (£)</th>
+        <th scope="col">Source</th>
+        <th scope="col">Images</th>
+        <th scope="col">Files</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+      <tr>
+        <th scope="row">CAR ID</th>
+        <td>AB12CDE</td>
+        <td>50000</td>
+        <td>55 Greenwood Drive, Littlehampton, West Sussex, BN164JW</td>
+        <td>BIGOLDVINGOESINHERETOIDTHECARINQUESTION</td>
+        <td>Audi</td>
+        <td>A3 30 TFSI S Line</td>
+        <td>anotheridgoesheretosetapartderivative</td>
+        <td>Hatchback</td>
+        <td>5</td>
+        <td>5</td>
+        <td>110</td>
+        <td>White</td>
+        <td>Ibis White</td>
+        <td>EU6</td>
+        <td>Automatic</td>
+        <td>Petrol</td>
+        <td>2017</td>
+        <td>17</td>
+        <td>Full Main Dealer</td>
+        <td>Excellent</td>
+        <td>2</td>
+        <td>1</td>
+        <td>01/09/23</td>
+        <td>A list of nested MOT expiries will need to go in here, either that or they are separated by breaks, i don't know</td>
+        <td>The same thing happens here with the HPI report as that needs to be nested to contain all the right information</td>
+        <td>01/03/2017</td>
+        <td>15000</td>
+        <td>15500</td>
+        <td>16000</td>
+        <td>18000</td>
+        <td>15000</td>
+        <td>15250</td>
+        <td>16500</td>
+        <td>18995</td>
+        <td>15250</td>
+        <td>309</td>
+        <td>Facebook</td>
+        <td>Image goes here</td>
+        <td>Enquiry</td>
+
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- CoreUI Modal -->
+<div class="modal" tabindex="-1" id="imageModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Image Preview</h5>
+        <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img id="previewImage" src="" style="width:100%;">
+      </div>
+      <div class="modal-footer">
+        <button id="prevImage" type="button" class="btn btn-primary">Previous</button>
+        <button id="nextImage" type="button" class="btn btn-primary">Next</button>
+        <button id="deleteImage" type="button" class="btn btn-danger">Delete Image</button>
+        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Google Places API script -->
+<script src="scripts/googlePlaces.js"></script>
+<!-- Image preview script -->
+<script src="scripts/imagePreview.js"></script>
+<!-- File preview script -->
+<script src="scripts/filePreview.js"></script>
+<!-- New item script -->
+<script src="scripts/newItem.js"></script>
+<!--Initialise Firebase-->
+<script src="scripts/firebaseInit.js"></script>
+<!--Firebase Authentication-->
+<script src="scripts/firebaseAuth.js" defer></script>
+<!--Firebase Sync-->
+<script src="scripts/firebaseSync.js" defer></script>
+
+
+  
+  
+</body>
+</html>
