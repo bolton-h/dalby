@@ -7,6 +7,8 @@
 
     <!-- Option 1: CoreUI for Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-UkVD+zxJKGsZP3s/JuRzapi4dQrDDuEf/kHphzg8P3v8wuQ6m9RLjTkPGeFcglQU" crossorigin="anonymous">
+    <!--Coreui JS-->
+    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@3.5.0/dist/js/coreui.bundle.min.js"></script>
 
     <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
@@ -85,7 +87,9 @@ textarea {
 
   <body>
 
-<button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#enquiriesTable" aria-expanded="false" aria-controls="enquiriesTable" style="width: 100%;">Enquiries</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#enquiriesTable" aria-expanded="false" aria-controls="enquiriesTable">
+        Enquiries
+      </button>
 <div class="col-md-12 table-responsive collapse" style="align-self: center" id="enquiriesTable">
   <table class="table table-hover caption-top">
     <thead class="table table-primary">
