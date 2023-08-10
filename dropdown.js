@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var dropdowns = document.querySelectorAll('.dropbtn');
-    
-    dropdowns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var content = this.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-      });
+    const tableClasses = ['enquiriesTable', 'pendingTable', 'liveTable', 'agreedTable', 'completedTable'];
+
+    tableClasses.forEach(function(tableClass) {
+        let tableElement = document.querySelector('.' + tableClass);
+        if (tableElement) {
+            tableElement.addEventListener('click', function() {
+                let content = this.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        }
     });
-  });
-  
+});
