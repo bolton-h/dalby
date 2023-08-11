@@ -16,7 +16,8 @@
 <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
 
 <!-- Handsontable -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@10.0.0/dist/handsontable.full.min.css">
+<link rel="stylesheet" href="panel.css">
+
 <script src="https://cdn.jsdelivr.net/npm/handsontable@10.0.0/dist/handsontable.full.min.js"></script>
 
 
@@ -25,39 +26,9 @@
 
 
 
-  <style>
 
-    td {
-white-space: nowrap;
-width: auto;
-border-color: black;
-}
 
-th {
-  white-space: nowrap;
-  text-align: center;
-  border-color: black;
-}
 
-tr  {
-  white-space: nowrap;
-  text-align: center;
-  border-color: black;
-
-}
-
-textarea {
-
-  min-width: 500px;
-  height: fit-content;
-
-}
-
-.collapsible .content {
-    max-height: 1000px !important; /* or any large value */
-}
-
-  </style>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"></a>
@@ -599,7 +570,9 @@ textarea {
   </div>
 </div>
 
-
+<!-- Editable rows -->
+<script src="scripts/editableRows.js"></script>
+<script src="scripts/deleteRows.js"></script>
 <!-- Google Places API script -->
 <script src="scripts/googlePlaces.js"></script>
 <!-- Image preview script -->
