@@ -24,7 +24,6 @@
 
     <title>Dalby Admin Panel</title>
   </head>
-  <body>
 
 
 
@@ -63,16 +62,16 @@
     </div>
   </nav>
 
+  <body>
 
-
-    <div class="scrolling-container">
-      <div class="col-md-12 table-responsive table-container" style="align-self: center" id="enquiriesTable">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#enquiriesTable" aria-expanded="false" aria-controls="enquiriesTable" style="width: 100%">
+        Enquiries
+      </button>
+      <div class="col-md-12 table-responsive" style="align-self: center" id="enquiriesTable">
         <table class="table table-hover caption-top">
-          <thead class="table">
+      
+          <thead class="table table-primary">
             <tr id="tableHeadersContainer"></tr>
-            <tr>
-              <th colspan="39">test</th> <!-- The number 39 should be the total number of columns in your table -->
-          </tr>
           </thead>
             <tr>
               <th scope="row">12345678</th>
@@ -122,8 +121,8 @@
           </tbody>
         </table>
       </div>
-      <h2 class="table-header">Pending</h2>
-<div class="col-md-12 table-responsive table-container" style="align-self: center" id="pendingTable">
+<button class="btn btn-info" type="button" data-coreui-toggle="collapse" data-coreui-target="#pendingTable" aria-expanded="false" aria-controls="pendingTable" style="width: 100%;">Pending</button>
+<div class="col-md-12 table-responsive" style="align-self: center" id="pendingTable">
   <table class="table table-hover caption-top">
     <thead class="table table-info">
       <tr id="tableHeadersContainer"></tr>
@@ -176,8 +175,8 @@
     </tbody>
   </table>
 </div>
-<h2 class="table-header">Live</h2>
-<div class="col-md-12 table-responsive table-container" style="align-self: center" id="liveTable">
+<button class="btn btn-dark" type="button" data-coreui-toggle="collapse" data-coreui-target="#liveTable" aria-expanded="false" aria-controls="liveTable" style="width: 100%;">Live</button>
+<div class="col-md-12 table-responsive" style="align-self: center" id="liveTable">
   <table class="table table-hover caption-top">
 
     <thead class="table table-dark">
@@ -231,8 +230,8 @@
     </tbody>
   </table>
 </div>
-<h2 class="table-header">Agreed</h2>
-<div class="col-md-12 table-responsive table-container" style="align-self: center" id="agreedTable">
+<button class="btn btn-warning" type="button" data-coreui-toggle="collapse" data-coreui-target="#agreedTable" aria-expanded="false" aria-controls="agreedTable" style="width: 100%;">Agreed</button>
+<div class="col-md-12 table-responsive" style="align-self: center" id="agreedTable">
   <table class="table table-hover caption-top">
     <thead class="table table-warning">
       <tr id="tableHeadersContainer"></tr>
@@ -285,8 +284,8 @@
     </tbody>
   </table>
 </div>
-<h2 class="table-header">Completed</h2>
-<div class="col-md-12 table-responsive table-container" style="align-self: center" id="completedTable">
+<button class="btn btn-success" type="button" data-coreui-toggle="collapse" data-coreui-target="#completedTable" aria-expanded="false" aria-controls="completedTable" style="width: 100%;">Completed</button>
+<div class="col-md-12 table-responsive" style="align-self: center" id="completedTable">
   <table class="table table-hover caption-top">
 
     <thead class="table table-success">
@@ -340,7 +339,6 @@
     </tbody>
   </table>
 </div>
-    </div>
 
 <!-- CoreUI Modal -->
 <div class="modal" tabindex="-1" id="imageModal">
@@ -368,8 +366,6 @@
 <!-- Editable rows -->
 <script src="scripts/editableRows.js"></script>
 <script src="scripts/deleteRows.js"></script>
-<!-- Sync table scrolling -->
-<script src="scripts/tableScroll.js"></script>
 <!-- Google Places API script -->
 <script src="scripts/googlePlaces.js"></script>
 <!-- Image preview script -->
