@@ -1,0 +1,41 @@
+
+
+td, th, tr {
+    white-space: nowrap;
+    text-align: center;
+    border-color: black;
+}
+
+textarea {
+    min-width: 500px;
+    height: fit-content;
+
+}
+
+th {
+    width: min-content; /* Set column width based on header content */
+}
+
+.editing {
+    background-color: #f5f5f5; /* Highlight color */
+    transform: scale(1.02); /* Makes the row slightly larger */
+    z-index: 10; /* Makes the row appear above others */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a shadow for a "pop out" effect */
+}
+
+/* Style for input fields within the table */
+table td input {
+    width: 100%;           /* Take up full width of the cell */
+    border: none;          /* Remove default borders */
+    background: none;      /* Remove default background */
+    outline: none;         /* Remove focus outline */
+    text-align: center;    /* Center the text */
+    padding: 0;            /* Remove default padding */
+    margin: 0;             /* Remove default margins */
+    box-sizing: border-box; /* Ensure padding and border are included in total width/height */
+}
+
+/* Add a subtle border to the input for better visibility */
+table td input:focus {
+    border: 1px solid #ccc;
+}

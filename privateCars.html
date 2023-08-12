@@ -21,6 +21,7 @@
 <script src="https://cdn.jsdelivr.net/npm/handsontable@10.0.0/dist/handsontable.full.min.js"></script>
 
 
+
     <title>Dalby Admin Panel</title>
   </head>
 
@@ -70,52 +71,10 @@
         <table class="table table-hover caption-top">
       
           <thead class="table table-primary">
-            <tr style="width: fit-content; height: 10px">
-              <th scope="col">ID</th>
-              <th scope="col">Registration</th>
-              <th scope="col">Mileage</th>
-              <th scope="col">Address</th>
-              <th scope="col">VIN</th>
-              <th scope="col">Make</th>
-              <th scope="col">Model</th>
-              <th scope="col">Derivative</th>
-              <th scope="col">Bodytype</th>
-              <th scope="col">Seats</th>
-              <th scope="col">Doors</th>
-              <th scope="col">CO2</th>
-              <th scope="col">Colour</th>
-              <th scope="col">OEM Colour</th>
-              <th scope="col">Emissions Standard</th>
-              <th scope="col">Transmission</th>
-              <th scope="col">Fuel</th>
-              <th scope="col">Year</th>
-              <th scope="col">Plate</th>
-              <th scope="col">Service History</th>
-              <th scope="col">Condition</th>
-              <th scope="col">Keys</th>
-              <th scope="col">Owners</th>
-              <th scope="col">MOT Expiry</th>
-              <th scope="col">MOT Advisories</th>
-              <th scope="col">HPI Report</th>
-              <th scope="col">Registration Date</th>
-              <th scope="col">CAP Below</th>
-              <th scope="col">CAP Average</th>
-              <th scope="col">CAP Clean</th>
-              <th scope="col">CAP Retail</th>
-              <th scope="col">AT Trade</th>
-              <th scope="col">AT Part Exchange</th>
-              <th scope="col">AT Private</th>
-              <th scope="col">AT Retail</th>
-              <th scope="col">Price</th>
-              <th scope="col">Fee + VAT (£)</th>
-              <th scope="col">Source</th>
-              <th scope="col">Images</th>
-              <th scope="col">Files</th>
-              <th scope="col">Status</th>
-            </tr>
+            <tr id="tableHeadersContainer"></tr>
           </thead>
             <tr>
-              <th scope="row">CAR ID</th>
+              <th scope="row">12345678</th>
               <td>AB12CDE</td>
               <td>50000</td>
               <td>55 Greenwood Drive, Littlehampton, West Sussex, BN164JW</td>
@@ -166,49 +125,7 @@
 <div class="col-md-12 table-responsive" style="align-self: center" id="pendingTable">
   <table class="table table-hover caption-top">
     <thead class="table table-info">
-      <tr style="width: fit-content; height: 10px">
-        <th scope="col">ID</th>
-        <th scope="col">Registration</th>
-        <th scope="col">Mileage</th>
-        <th scope="col">Address</th>
-        <th scope="col">VIN</th>
-        <th scope="col">Make</th>
-        <th scope="col">Model</th>
-        <th scope="col">Derivative</th>
-        <th scope="col">Bodytype</th>
-        <th scope="col">Seats</th>
-        <th scope="col">Doors</th>
-        <th scope="col">CO2</th>
-        <th scope="col">Colour</th>
-        <th scope="col">OEM Colour</th>
-        <th scope="col">Emissions Standard</th>
-        <th scope="col">Transmission</th>
-        <th scope="col">Fuel</th>
-        <th scope="col">Year</th>
-        <th scope="col">Plate</th>
-        <th scope="col">Service History</th>
-        <th scope="col">Condition</th>
-        <th scope="col">Keys</th>
-        <th scope="col">Owners</th>
-        <th scope="col">MOT Expiry</th>
-        <th scope="col">MOT Advisories</th>
-        <th scope="col">HPI Report</th>
-        <th scope="col">Registration Date</th>
-        <th scope="col">CAP Below</th>
-        <th scope="col">CAP Average</th>
-        <th scope="col">CAP Clean</th>
-        <th scope="col">CAP Retail</th>
-        <th scope="col">AT Trade</th>
-        <th scope="col">AT Part Exchange</th>
-        <th scope="col">AT Private</th>
-        <th scope="col">AT Retail</th>
-        <th scope="col">Price</th>
-        <th scope="col">Fee + VAT (£)</th>
-        <th scope="col">Source</th>
-        <th scope="col">Images</th>
-        <th scope="col">Files</th>
-        <th scope="col">Status</th>
-      </tr>
+      <tr id="tableHeadersContainer"></tr>
     </thead>
       <tr>
         <th scope="row">CAR ID</th>
@@ -263,49 +180,7 @@
   <table class="table table-hover caption-top">
 
     <thead class="table table-dark">
-      <tr style="width: fit-content; height: 10px">
-        <th scope="col">ID</th>
-        <th scope="col">Registration</th>
-        <th scope="col">Mileage</th>
-        <th scope="col">Address</th>
-        <th scope="col">VIN</th>
-        <th scope="col">Make</th>
-        <th scope="col">Model</th>
-        <th scope="col">Derivative</th>
-        <th scope="col">Bodytype</th>
-        <th scope="col">Seats</th>
-        <th scope="col">Doors</th>
-        <th scope="col">CO2</th>
-        <th scope="col">Colour</th>
-        <th scope="col">OEM Colour</th>
-        <th scope="col">Emissions Standard</th>
-        <th scope="col">Transmission</th>
-        <th scope="col">Fuel</th>
-        <th scope="col">Year</th>
-        <th scope="col">Plate</th>
-        <th scope="col">Service History</th>
-        <th scope="col">Condition</th>
-        <th scope="col">Keys</th>
-        <th scope="col">Owners</th>
-        <th scope="col">MOT Expiry</th>
-        <th scope="col">MOT Advisories</th>
-        <th scope="col">HPI Report</th>
-        <th scope="col">Registration Date</th>
-        <th scope="col">CAP Below</th>
-        <th scope="col">CAP Average</th>
-        <th scope="col">CAP Clean</th>
-        <th scope="col">CAP Retail</th>
-        <th scope="col">AT Trade</th>
-        <th scope="col">AT Part Exchange</th>
-        <th scope="col">AT Private</th>
-        <th scope="col">AT Retail</th>
-        <th scope="col">Price</th>
-        <th scope="col">Fee + VAT (£)</th>
-        <th scope="col">Source</th>
-        <th scope="col">Images</th>
-        <th scope="col">Files</th>
-        <th scope="col">Status</th>
-      </tr>
+      <tr id="tableHeadersContainer"></tr>
     </thead>
       <tr>
         <th scope="row">CAR ID</th>
@@ -359,49 +234,7 @@
 <div class="col-md-12 table-responsive" style="align-self: center" id="agreedTable">
   <table class="table table-hover caption-top">
     <thead class="table table-warning">
-      <tr style="width: fit-content; height: 10px">
-        <th scope="col">ID</th>
-        <th scope="col">Registration</th>
-        <th scope="col">Mileage</th>
-        <th scope="col">Address</th>
-        <th scope="col">VIN</th>
-        <th scope="col">Make</th>
-        <th scope="col">Model</th>
-        <th scope="col">Derivative</th>
-        <th scope="col">Bodytype</th>
-        <th scope="col">Seats</th>
-        <th scope="col">Doors</th>
-        <th scope="col">CO2</th>
-        <th scope="col">Colour</th>
-        <th scope="col">OEM Colour</th>
-        <th scope="col">Emissions Standard</th>
-        <th scope="col">Transmission</th>
-        <th scope="col">Fuel</th>
-        <th scope="col">Year</th>
-        <th scope="col">Plate</th>
-        <th scope="col">Service History</th>
-        <th scope="col">Condition</th>
-        <th scope="col">Keys</th>
-        <th scope="col">Owners</th>
-        <th scope="col">MOT Expiry</th>
-        <th scope="col">MOT Advisories</th>
-        <th scope="col">HPI Report</th>
-        <th scope="col">Registration Date</th>
-        <th scope="col">CAP Below</th>
-        <th scope="col">CAP Average</th>
-        <th scope="col">CAP Clean</th>
-        <th scope="col">CAP Retail</th>
-        <th scope="col">AT Trade</th>
-        <th scope="col">AT Part Exchange</th>
-        <th scope="col">AT Private</th>
-        <th scope="col">AT Retail</th>
-        <th scope="col">Price</th>
-        <th scope="col">Fee + VAT (£)</th>
-        <th scope="col">Source</th>
-        <th scope="col">Images</th>
-        <th scope="col">Files</th>
-        <th scope="col">Status</th>
-      </tr>
+      <tr id="tableHeadersContainer"></tr>
     </thead>
       <tr>
         <th scope="row">CAR ID</th>
@@ -456,49 +289,7 @@
   <table class="table table-hover caption-top">
 
     <thead class="table table-success">
-      <tr style="width: fit-content; height: 10px">
-        <th scope="col">ID</th>
-        <th scope="col">Registration</th>
-        <th scope="col">Mileage</th>
-        <th scope="col">Address</th>
-        <th scope="col">VIN</th>
-        <th scope="col">Make</th>
-        <th scope="col">Model</th>
-        <th scope="col">Derivative</th>
-        <th scope="col">Bodytype</th>
-        <th scope="col">Seats</th>
-        <th scope="col">Doors</th>
-        <th scope="col">CO2</th>
-        <th scope="col">Colour</th>
-        <th scope="col">OEM Colour</th>
-        <th scope="col">Emissions Standard</th>
-        <th scope="col">Transmission</th>
-        <th scope="col">Fuel</th>
-        <th scope="col">Year</th>
-        <th scope="col">Plate</th>
-        <th scope="col">Service History</th>
-        <th scope="col">Condition</th>
-        <th scope="col">Keys</th>
-        <th scope="col">Owners</th>
-        <th scope="col">MOT Expiry</th>
-        <th scope="col">MOT Advisories</th>
-        <th scope="col">HPI Report</th>
-        <th scope="col">Registration Date</th>
-        <th scope="col">CAP Below</th>
-        <th scope="col">CAP Average</th>
-        <th scope="col">CAP Clean</th>
-        <th scope="col">CAP Retail</th>
-        <th scope="col">AT Trade</th>
-        <th scope="col">AT Part Exchange</th>
-        <th scope="col">AT Private</th>
-        <th scope="col">AT Retail</th>
-        <th scope="col">Price</th>
-        <th scope="col">Fee + VAT (£)</th>
-        <th scope="col">Source</th>
-        <th scope="col">Images</th>
-        <th scope="col">Files</th>
-        <th scope="col">Status</th>
-      </tr>
+      <tr id="tableHeadersContainer"></tr>
     </thead>
       <tr>
         <th scope="row">CAR ID</th>
@@ -570,6 +361,8 @@
   </div>
 </div>
 
+<!--Load table headers-->
+<script src="scripts/loadHeaders.js"></script>
 <!-- Editable rows -->
 <script src="scripts/editableRows.js"></script>
 <script src="scripts/deleteRows.js"></script>
@@ -587,6 +380,8 @@
 <script src="scripts/firebaseAuth.js" defer></script>
 <!--Firebase Sync-->
 <script src="scripts/firebaseSync.js" defer></script>
+
+
 
 
   
