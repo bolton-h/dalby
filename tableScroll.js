@@ -1,11 +1,14 @@
-const tableContainers = document.querySelectorAll('.table-container');
+window.addEventListener('scroll', function() {
+    var headers = document.querySelectorAll('.category-header td');
+    var viewportHeight = window.innerHeight;
 
-tableContainers.forEach(container => {
-    container.addEventListener('scroll', function() {
-        tableContainers.forEach(innerContainer => {
-            if (innerContainer !== container) {
-                innerContainer.scrollTop = container.scrollTop;
-            }
-        });
+    headers.forEach(function(header) {
+        var rect = header.getBoundingClientRect();
+        if (rect.top <= viewportHeight && rect.bottom >= 0) {
+            header.style.position = 'sticky';
+            header.style.top = (viewportHeight / 2 - header.offsetHeight / 2) + 'px';
+        } else {
+            header.style.position = 'static';
+        }
     });
 });
